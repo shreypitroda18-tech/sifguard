@@ -55,7 +55,7 @@ export function ActionsList() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {['Open', 'In Progress', 'Completed'].map(statusColumn => (
-          <div key={statusColumn} className="bg-muted/30 p-4 rounded-xl border border-border flex flex-col h-[calc(100vh-14rem)]">
+          <div key={statusColumn} className="bg-slate-50 p-4 rounded-2xl border border-border flex flex-col h-[calc(100vh-14rem)]">
             <div className="flex justify-between items-center mb-4">
               <h3 className="font-semibold text-lg flex items-center gap-2">
                 <div className={`w-2 h-2 rounded-full ${getStatusColor(statusColumn)}`} />

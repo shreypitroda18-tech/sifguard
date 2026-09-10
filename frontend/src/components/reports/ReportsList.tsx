@@ -49,32 +49,32 @@ export function ReportsList() {
         </Button>
       </div>
 
-      <div className="border border-border rounded-lg overflow-hidden bg-card">
+      <div className="border border-border rounded-2xl overflow-hidden bg-white shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left">
-            <thead className="text-xs text-muted-foreground uppercase bg-muted/50 border-b border-border">
+            <thead className="text-xs text-muted-foreground uppercase bg-slate-50 border-b border-border">
               <tr>
-                <th className="px-4 py-3 font-medium">Report ID</th>
-                <th className="px-4 py-3 font-medium">Date</th>
-                <th className="px-4 py-3 font-medium">Site</th>
-                <th className="px-4 py-3 font-medium">Hazard</th>
-                <th className="px-4 py-3 font-medium">Risk</th>
-                <th className="px-4 py-3 font-medium text-right">Actions</th>
+                <th className="px-6 py-4 font-semibold tracking-wider">Report ID</th>
+                <th className="px-6 py-4 font-semibold tracking-wider">Date</th>
+                <th className="px-6 py-4 font-semibold tracking-wider">Site</th>
+                <th className="px-6 py-4 font-semibold tracking-wider">Hazard</th>
+                <th className="px-6 py-4 font-semibold tracking-wider">Risk</th>
+                <th className="px-6 py-4 font-semibold tracking-wider text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
               {reports.map((report) => (
                 <tr key={report.id} className="hover:bg-muted/50 transition-colors">
-                  <td className="px-4 py-3 font-medium font-mono text-primary">{report.reportId}</td>
-                  <td className="px-4 py-3 text-muted-foreground">{new Date(report.createdAt).toLocaleDateString()}</td>
-                  <td className="px-4 py-3">{report.site}</td>
-                  <td className="px-4 py-3 truncate max-w-[200px]">{report.title}</td>
-                  <td className="px-4 py-3">
+                  <td className="px-6 py-4 font-medium font-mono text-primary">{report.reportId}</td>
+                  <td className="px-6 py-4 text-muted-foreground">{new Date(report.createdAt).toLocaleDateString()}</td>
+                  <td className="px-6 py-4">{report.site}</td>
+                  <td className="px-6 py-4 truncate max-w-[200px]">{report.title}</td>
+                  <td className="px-6 py-4">
                     <Badge variant={report.severity.toLowerCase() as any}>
                       {report.severity}
                     </Badge>
                   </td>
-                  <td className="px-4 py-3 text-right">
+                  <td className="px-6 py-4 text-right">
                     <Link href={`/reports/${report.id}`}>
                       <Button variant="ghost" size="sm">
                         <Eye className="h-4 w-4 mr-2" /> View

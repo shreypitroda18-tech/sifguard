@@ -88,7 +88,7 @@ export function ReportDetail() {
               <CardDescription>The raw observation submitted by the reporter.</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="p-4 bg-muted/30 rounded-md border border-border">
+              <div className="p-4 bg-slate-50 rounded-md border border-border">
                 <p className="text-lg leading-relaxed">{report.description}</p>
                 <div className="mt-4 flex justify-between items-center text-sm text-muted-foreground">
                   <span>Language: {report.originalLanguage}</span>
@@ -134,21 +134,21 @@ export function ReportDetail() {
                 </CardHeader>
                 <CardContent className="pt-6">
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    <div className="p-3 bg-muted/30 rounded-lg border border-border/50">
+                    <div className="p-3 bg-slate-50 rounded-lg border border-border/50">
                       <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">SIF PRECURSOR</div>
                       <div className="font-bold text-red-500 flex items-center gap-1">
                         <ShieldAlert className="h-4 w-4" /> DETECTED
                       </div>
                     </div>
-                    <div className="p-3 bg-muted/30 rounded-lg border border-border/50">
+                    <div className="p-3 bg-slate-50 rounded-lg border border-border/50">
                       <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">RISK LEVEL</div>
                       <div className="font-bold text-red-500 uppercase">{report.analysis.riskLevel}</div>
                     </div>
-                    <div className="p-3 bg-muted/30 rounded-lg border border-border/50">
+                    <div className="p-3 bg-slate-50 rounded-lg border border-border/50">
                       <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">AI CONFIDENCE</div>
                       <div className="font-bold text-foreground">{(report.analysis.confidence * 100).toFixed(0)}%</div>
                     </div>
-                    <div className="p-3 bg-muted/30 rounded-lg border border-border/50">
+                    <div className="p-3 bg-slate-50 rounded-lg border border-border/50">
                       <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">HAZARDS</div>
                       <div className="font-bold text-foreground">{report.analysis.hazardCategories.length} Detected</div>
                     </div>
@@ -192,7 +192,7 @@ export function ReportDetail() {
               </Card>
             </motion.div>
           ) : (
-            <Card className="border-dashed border-2 bg-transparent text-center p-8">
+            <Card className="border-dashed border-2 bg-white text-center p-8">
               <BrainCircuit className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-50" />
               <h3 className="text-lg font-medium">No AI Analysis Yet</h3>
               <p className="text-muted-foreground mt-1 mb-6 max-w-md mx-auto">

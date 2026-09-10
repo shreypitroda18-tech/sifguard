@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ShieldAlert, AlertTriangle, Activity, CheckSquare } from "lucide-react"
+import { ShieldAlert, Activity, CheckSquare, AlertTriangle, AlertOctagon, CheckCircle2 } from "lucide-react"
 import { motion } from "framer-motion"
 import axios from "axios"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Cell } from 'recharts';
@@ -60,26 +60,70 @@ export function Dashboard() {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
         <div>
           <h2 className="text-3xl font-bold tracking-tight text-foreground">Safety Command Center</h2>
-          <p className="text-muted-foreground mt-1">Real-time overview of safety observations, SIF precursors, risks, and corrective actions.</p>
-        </div>
-        <div className="mt-4 md:mt-0 flex gap-2">
-          <select className="px-3 py-1.5 bg-card border border-border rounded-md text-sm">
-            <option>All Sites</option>
-            <option>Site A</option>
-            <option>Site B</option>
-          </select>
-          <select className="px-3 py-1.5 bg-card border border-border rounded-md text-sm">
-            <option>Last 7 Days</option>
-            <option>Last 30 Days</option>
-          </select>
+          <p className="text-muted-foreground mt-1">Real-time oversight of industrial safety observations and AI-detected SIF precursors.</p>
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <MetricCard title="Total Reports" value={summary.totalReports} icon={Activity} trend="+12%" />
-        <MetricCard title="SIF Precursors" value={summary.sifPrecursors} icon={ShieldAlert} trend="+4%" />
-        <MetricCard title="Critical Risks" value={summary.criticalRisks} icon={AlertTriangle} trend="-2%" className="text-red-500" />
-        <MetricCard title="Open Actions" value={summary.openActions} icon={CheckSquare} trend="-8%" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Card className="border-none shadow-sm bg-white overflow-hidden rounded-2xl relative">
+          <div className="absolute top-0 right-0 p-4 opacity-10 text-primary">
+            <Activity className="h-16 w-16" />
+          </div>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Total Reports</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-4xl font-bold text-foreground">{summary.totalReports}</div>
+            <p className="text-xs text-green-500 font-medium mt-1 flex items-center">
+              +12% <span className="text-muted-foreground ml-1 font-normal">from last month</span>
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="border-none shadow-sm bg-white overflow-hidden rounded-2xl relative">
+          <div className="absolute top-0 right-0 p-4 opacity-10 text-destructive">
+            <AlertTriangle className="h-16 w-16" />
+          </div>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground uppercase tracking-wider">SIF Precursors Detected</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-4xl font-bold text-destructive">{summary.sifPrecursors}</div>
+            <p className="text-xs text-destructive font-medium mt-1 flex items-center">
+              +3% <span className="text-muted-foreground ml-1 font-normal">from last month</span>
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="border-none shadow-sm bg-white overflow-hidden rounded-2xl relative">
+          <div className="absolute top-0 right-0 p-4 opacity-10 text-orange-500">
+            <AlertOctagon className="h-16 w-16" />
+          </div>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Critical Risks</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-4xl font-bold text-orange-500">{summary.criticalRisks}</div>
+            <p className="text-xs text-green-500 font-medium mt-1 flex items-center">
+              -5% <span className="text-muted-foreground ml-1 font-normal">from last month</span>
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="border-none shadow-sm bg-white overflow-hidden rounded-2xl relative">
+          <div className="absolute top-0 right-0 p-4 opacity-10 text-primary">
+            <CheckCircle2 className="h-16 w-16" />
+          </div>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Open Actions</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-4xl font-bold text-foreground">{summary.openActions}</div>
+            <p className="text-xs text-muted-foreground font-normal mt-1 flex items-center">
+              8 actions due this week
+            </p>
+          </CardContent>
+        </Card>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">

@@ -61,7 +61,7 @@ export function Copilot() {
         <p className="text-muted-foreground mt-1">Ask questions about your safety intelligence data in multiple languages.</p>
       </div>
 
-      <Card className="flex-1 flex flex-col overflow-hidden border-border bg-card">
+      <Card className="flex-1 flex flex-col overflow-hidden border-border bg-slate-50">
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           {messages.map((msg, idx) => (
             <motion.div 
@@ -75,7 +75,7 @@ export function Copilot() {
                   <Bot className="h-4 w-4 text-primary" />
                 </div>
               )}
-              <div className={`p-3 rounded-lg max-w-[80%] ${msg.role === 'user' ? 'bg-primary text-primary-foreground' : 'bg-muted/50 border border-border'}`}>
+              <div className={`p-3 rounded-lg max-w-[80%] ${msg.role === 'user' ? 'bg-primary text-primary-foreground' : 'bg-white shadow-sm border border-border'}`}>
                 {msg.content}
               </div>
               {msg.role === 'user' && (
@@ -90,7 +90,7 @@ export function Copilot() {
               <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                 <BrainCircuit className="h-4 w-4 text-primary animate-pulse" />
               </div>
-              <div className="p-3 rounded-lg bg-muted/50 border border-border flex items-center gap-2">
+              <div className="p-3 rounded-lg bg-white shadow-sm border border-border flex items-center gap-2">
                 <div className="h-2 w-2 bg-primary rounded-full animate-bounce"></div>
                 <div className="h-2 w-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                 <div className="h-2 w-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
@@ -100,7 +100,7 @@ export function Copilot() {
           <div ref={messagesEndRef} />
         </div>
         
-        <div className="p-4 border-t border-border bg-card">
+        <div className="p-4 border-t border-border bg-slate-50">
           <div className="flex gap-2 overflow-x-auto pb-2 mb-2 scrollbar-hide">
             {suggestedQueries.map((sq, idx) => (
               <button 

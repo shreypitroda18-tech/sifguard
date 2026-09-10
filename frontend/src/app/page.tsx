@@ -3,7 +3,7 @@ import { ShieldAlert, Activity, ArrowRight, Brain, AlertTriangle, CheckCircle2 }
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground dark selection:bg-primary/30">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1 items-center gap-2">
